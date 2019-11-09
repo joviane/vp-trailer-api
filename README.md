@@ -13,7 +13,11 @@ TBC
 
 ## Running the tests
 
-TBC
+npm run test
+
+## Questions to ask
+
+- What is the ?dtg param in URL? Example: https://content.viaplay.se/ios-se{?dtg}
 
 ## Built With
 

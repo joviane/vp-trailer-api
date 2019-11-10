@@ -8,14 +8,22 @@ describe('Trailer Service', () => {
 
     it('should return trailerURL with a valid movieResourceLink', async () => {
       const movieResourceLink = `${resourceLinkWithoutMovie}/${movieSlug}`;
-      const resultSlug = await getTrailerURL(movieResourceLink);
-      expect(resultSlug).to.be.equal(movieSlug);
+      const captainMarvelTrailer =
+        'https://www.youtube.com/watch?v=Z1BCujX3pw8';
+      const trailerURL = await getTrailerURL(movieResourceLink);
+      expect(trailerURL).to.be.equal(captainMarvelTrailer);
     });
 
     it('should return error with an invalid movieResourceLink', async () => {
       const invalidMovieResourceLink = `${resourceLinkWithoutMovie}/`;
       const result = await getTrailerURL(invalidMovieResourceLink);
       expect(result).to.be.an('Error');
+    });
+
+    it('should return 404 when movie not found', async () => {
+      const movieResourceLink = `${resourceLinkWithoutMovie}/movie-not-found`;
+      const { status } = await getTrailerURL(movieResourceLink);
+      expect(status).to.be.equal(404);
     });
   });
 });

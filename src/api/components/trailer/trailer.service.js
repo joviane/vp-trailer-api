@@ -1,4 +1,5 @@
 import getMovieSlugFromLink from '../../lib/validator.lib';
+import getImdbId from '../../../../services/viaplay.service';
 
 const getTrailerURL = async (movieResourceLink) => {
   const movieSlug = getMovieSlugFromLink(movieResourceLink);
@@ -9,7 +10,9 @@ const getTrailerURL = async (movieResourceLink) => {
     error.message = 'invalid movieResourceLink';
     return error;
   }
-  return movieSlug;
+
+  const imdbId = await getImdbId(movieResourceLink);
+  return imdbId;
 };
 
 export default getTrailerURL;

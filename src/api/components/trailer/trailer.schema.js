@@ -2,7 +2,7 @@ const schema = {
   querystring: {
     type: 'object',
     properties: {
-      movie_resource_link: {
+      movieResourceLink: {
         type: 'string',
       },
     },

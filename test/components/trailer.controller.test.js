@@ -27,5 +27,11 @@ describe('Trailer Controller', () => {
       const { status } = await request(server).get(url);
       expect(status).to.be.equal(400);
     });
+
+    it('should respond 400 with invalid movieResourceLink', async () => {
+      const urlWithInvalidQueryParam = `${url}?movieResourceLink=https://content.viaplay.se/chromecast-se/film`;
+      const { status } = await request(server).get(urlWithInvalidQueryParam);
+      expect(status).to.be.equal(400);
+    });
   });
 });

@@ -6,7 +6,7 @@ const schema = {
         type: 'string',
       },
     },
-    required: ['movie_resource_link'],
+    required: ['movieResourceLink'],
   },
 };
 

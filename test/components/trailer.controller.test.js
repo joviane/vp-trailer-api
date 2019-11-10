@@ -6,7 +6,6 @@ import fastify from '../../src/api/server';
 const { server } = fastify;
 
 const url = '/trailer';
-const urlWithQueryParam = `${url}?movie_resource_link=https://content.viaplay.se/pc-se/film/captain-marvel-2019`;
 
 describe('Trailer Controller', () => {
   before(async () => {
@@ -19,6 +18,7 @@ describe('Trailer Controller', () => {
 
   describe(`GET ${url}`, () => {
     it('should respond 200 with valid url', async () => {
+      const urlWithQueryParam = `${url}?movieResourceLink=https://content.viaplay.se/pc-se/film/captain-marvel-2019`;
       const { status } = await request(server).get(urlWithQueryParam);
       expect(status).to.be.equal(200);
     });

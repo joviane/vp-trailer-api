@@ -1,11 +1,12 @@
 import request from 'supertest';
+import { expect } from 'chai';
 
 import fastify from '../../src/api/server';
 
 const { server } = fastify;
 
 const url = '/trailer';
-const urlWithParam = `${url}?movie_resource_link=https://content.viaplay.se/pc-se/film/captain-marvel-2019`;
+const urlWithQueryParam = `${url}?movie_resource_link=https://content.viaplay.se/pc-se/film/captain-marvel-2019`;
 
 describe('Trailer Controller', () => {
   before(async () => {
@@ -17,11 +18,14 @@ describe('Trailer Controller', () => {
   });
 
   describe(`GET ${url}`, () => {
-    it('should respond with json', (done) => {
-      request(server)
-        .get(urlWithParam)
-        .expect('Content-Type', /json/)
-        .expect(200, done);
+    it('should respond 200 with valid url', async () => {
+      const { status } = await request(server).get(urlWithQueryParam);
+      expect(status).to.be.equal(200);
+    });
+
+    it('should respond 400 with url without query parameter', async () => {
+      const { status } = await request(server).get(url);
+      expect(status).to.be.equal(400);
     });
   });
 });

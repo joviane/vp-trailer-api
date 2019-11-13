@@ -10,9 +10,8 @@ describe('Trailer Service', () => {
       const movieResourceLink = `${resourceLinkWithoutMovie}/${movieSlug}`;
       const captainMarvelTrailer =
         'https://www.youtube.com/watch?v=Z1BCujX3pw8';
-      const data = await trailerService.getTrailerURL(movieResourceLink);
-      expect(data).to.have.property('trailerURL');
-      expect(data.trailerURL).to.be.equal(captainMarvelTrailer);
+      const trailerURL = await trailerService.getTrailerURL(movieResourceLink);
+      expect(trailerURL).to.be.equal(captainMarvelTrailer);
     });
 
     it('should throw error with an invalid movieResourceLink', () => {

@@ -3,13 +3,8 @@ import tbmdService from '../../../../services/tmdb.service';
 
 const getTrailerURL = async (movieResourceLink) => {
   const imdbId = await viaplayService.getImdbId(movieResourceLink);
-  const result = await tbmdService.getTrailerFromApi(imdbId);
-
-  const data = {
-    trailerURL: result,
-  };
-
-  return data;
+  const trailerURL = await tbmdService.getTrailerFromApi(imdbId);
+  return trailerURL;
 };
 
 export default { getTrailerURL };

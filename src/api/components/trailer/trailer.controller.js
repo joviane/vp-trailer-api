@@ -4,9 +4,11 @@ const getTrailer = async (req, res) => {
   const { movieResourceLink } = req.query;
 
   try {
-    const data = await trailerService.getTrailerURL(movieResourceLink);
+    const trailerURL = await trailerService.getTrailerURL(movieResourceLink);
     res.type('application/json');
-    res.send(data);
+    res.send({
+      trailerURL,
+    });
   } catch (error) {
     res.send(error);
   }

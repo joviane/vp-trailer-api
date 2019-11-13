@@ -1,5 +1,6 @@
 import getMovieSlugFromLink from '../../lib/validator.lib';
-import getImdbId from '../../../../services/viaplay.service';
+import viaplayService from '../../../../services/viaplay.service';
+import tbmdService from '../../../../services/tmdb.service';
 
 const getTrailerURL = async (movieResourceLink) => {
   const movieSlug = getMovieSlugFromLink(movieResourceLink);
@@ -10,9 +11,29 @@ const getTrailerURL = async (movieResourceLink) => {
     error.message = 'invalid movieResourceLink';
     return error;
   }
+  const imdbId = await viaplayService.getImdbId(movieResourceLink);
 
-  const imdbId = await getImdbId(movieResourceLink);
-  return imdbId;
+  if (imdbId == null) {
+    const error = new Error();
+    error.statusCode = 404;
+    error.message = 'movie not found';
+    return error;
+  }
+
+  const result = await tbmdService.getTrailerFromApi(imdbId);
+
+  if (result == null) {
+    const error = new Error();
+    error.statusCode = 404;
+    error.message = 'trailer not found';
+    return error;
+  }
+
+  const data = {
+    trailerURL: result,
+  };
+
+  return data;
 };
 
-export default getTrailerURL;
+export default { getTrailerURL };

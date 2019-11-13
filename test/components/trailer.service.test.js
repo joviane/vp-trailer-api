@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import getTrailerURL from '../../src/api/components/trailer/trailer.service';
+import trailerService from '../../src/api/components/trailer/trailer.service';
 
 describe('Trailer Service', () => {
   describe('#getTrailerURL(movieResourceLink)', () => {
@@ -10,20 +10,25 @@ describe('Trailer Service', () => {
       const movieResourceLink = `${resourceLinkWithoutMovie}/${movieSlug}`;
       const captainMarvelTrailer =
         'https://www.youtube.com/watch?v=Z1BCujX3pw8';
-      const trailerURL = await getTrailerURL(movieResourceLink);
-      expect(trailerURL).to.be.equal(captainMarvelTrailer);
+      const data = await trailerService.getTrailerURL(movieResourceLink);
+      expect(data).to.have.property('trailerURL');
+      expect(data.trailerURL).to.be.equal(captainMarvelTrailer);
     });
 
     it('should return error with an invalid movieResourceLink', async () => {
       const invalidMovieResourceLink = `${resourceLinkWithoutMovie}/`;
-      const result = await getTrailerURL(invalidMovieResourceLink);
+      const result = await trailerService.getTrailerURL(
+        invalidMovieResourceLink
+      );
       expect(result).to.be.an('Error');
     });
 
     it('should return 404 when movie not found', async () => {
       const movieResourceLink = `${resourceLinkWithoutMovie}/movie-not-found`;
-      const { status } = await getTrailerURL(movieResourceLink);
-      expect(status).to.be.equal(404);
+      const { statusCode } = await trailerService.getTrailerURL(
+        movieResourceLink
+      );
+      expect(statusCode).to.be.equal(404);
     });
   });
 });

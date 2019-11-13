@@ -1,16 +1,7 @@
-import getMovieSlugFromLink from '../../lib/validator.lib';
 import viaplayService from '../../../../services/viaplay.service';
 import tbmdService from '../../../../services/tmdb.service';
 
 const getTrailerURL = async (movieResourceLink) => {
-  const movieSlug = getMovieSlugFromLink(movieResourceLink);
-
-  if (movieSlug == null) {
-    const error = new Error();
-    error.statusCode = 400;
-    error.message = 'invalid movieResourceLink';
-    return error;
-  }
   const imdbId = await viaplayService.getImdbId(movieResourceLink);
 
   if (imdbId == null) {

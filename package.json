@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "test": "NODE_ENV=test mocha --require sucrase/register ./test/**/*.js"
+    "test": "NODE_ENV=test mocha --require sucrase/register --require dotenv/config ./test/**/*.js"
   },
   "repository": {
     "type": "git",

@@ -8,6 +8,13 @@ const isYoutubeTrailer = (video) => {
   return isYoutube && isTrailer;
 };
 
+const createTrailerURL = (strings, trailerMovieHash) => {
+  return (
+    (trailerMovieHash && `${YOUTUBE_PARTIAL_URL}${trailerMovieHash.key}`) ||
+    false
+  );
+};
+
 const getTrailerFromApi = async (imdbId) => {
   const tmdbApiUrl = `https://api.themoviedb.org/3/movie/${imdbId}/videos?api_key=${TMDB_API_KEY}`;
   const { body } = await superagent.get(tmdbApiUrl);
@@ -16,11 +23,7 @@ const getTrailerFromApi = async (imdbId) => {
     isYoutubeTrailer(video)
   );
 
-  if (trailerMovieHash) {
-    const trailerURL = `${YOUTUBE_PARTIAL_URL}${trailerMovieHash.key}`;
-    return trailerURL;
-  }
-  return null;
+  return createTrailerURL`${trailerMovieHash}`;
 };
 
 export default { getTrailerFromApi };

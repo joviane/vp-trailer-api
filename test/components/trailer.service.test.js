@@ -20,15 +20,13 @@ describe('Trailer Service', () => {
       const result = await trailerService.getTrailerURL(
         invalidMovieResourceLink
       );
-      expect(result).to.be.an('Error');
+      expect(result).to.be.an('error');
     });
 
-    it('should return 404 when movie not found', async () => {
+    it('should return error when movie not found', async () => {
       const movieResourceLink = `${resourceLinkWithoutMovie}/movie-not-found`;
-      const { statusCode } = await trailerService.getTrailerURL(
-        movieResourceLink
-      );
-      expect(statusCode).to.be.equal(404);
+      const result = await trailerService.getTrailerURL(movieResourceLink);
+      expect(result).to.be.an('error');
     });
   });
 });

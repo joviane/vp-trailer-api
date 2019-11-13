@@ -15,18 +15,14 @@ describe('Trailer Service', () => {
       expect(data.trailerURL).to.be.equal(captainMarvelTrailer);
     });
 
-    it('should return error with an invalid movieResourceLink', async () => {
+    it('should throw error with an invalid movieResourceLink', () => {
       const invalidMovieResourceLink = `${resourceLinkWithoutMovie}/`;
-      const result = await trailerService.getTrailerURL(
-        invalidMovieResourceLink
-      );
-      expect(result).to.be.an('error');
+      expect(() => trailerService.getTrailerURL(invalidMovieResourceLink));
     });
 
-    it('should return error when movie not found', async () => {
+    it('should throw error when movie not found', () => {
       const movieResourceLink = `${resourceLinkWithoutMovie}/movie-not-found`;
-      const result = await trailerService.getTrailerURL(movieResourceLink);
-      expect(result).to.be.an('error');
+      expect(() => trailerService.getTrailerURL(movieResourceLink));
     });
   });
 });

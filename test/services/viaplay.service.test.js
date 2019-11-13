@@ -12,7 +12,7 @@ describe('Viaplay Service', () => {
       expect(imdbId).to.be.equal('tt4154664');
     });
 
-    it('should return error when a movie is not found', () => {
+    it('should throw error when a movie is not found', () => {
       const movieResourceLink = `${resourceLinkWithoutMovie}/movie-not-found`;
       expect(() => {
         viaplayService.getImdbId(movieResourceLink);

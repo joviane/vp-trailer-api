@@ -12,10 +12,10 @@ describe('Viaplay Service', () => {
       expect(imdbId).to.be.equal('tt4154664');
     });
 
-    it('should return null when a movie is not found', async () => {
+    it('should return error when a movie is not found', async () => {
       const movieResourceLink = `${resourceLinkWithoutMovie}/movie-not-found`;
       const result = await viaplayService.getImdbId(movieResourceLink);
-      expect(result).to.be.null;
+      expect(result).to.be.an('error');
     });
   });
 });

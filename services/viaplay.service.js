@@ -3,16 +3,13 @@ import superagent from 'superagent';
 
 const getImdbId = async (movieResourceLink) => {
   try {
-    const { body, error } = await superagent.get(movieResourceLink);
-    if (error) {
-      return null;
-    }
+    const { body } = await superagent.get(movieResourceLink);
     const { imdb } = body._embedded['viaplay:blocks'][0]._embedded[
       'viaplay:product'
     ].content;
     return imdb.id;
-  } catch ({ response }) {
-    return null;
+  } catch (error) {
+    return error;
   }
 };
 

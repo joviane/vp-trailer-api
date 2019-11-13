@@ -2,19 +2,15 @@ import { expect } from 'chai';
 import tmdbService from '../../services/tmdb.service';
 
 describe('Tmdb Service', () => {
-  const captainMarvelImdbId = 'tt4154664';
-
-  describe('#getMovieId(imdbId)', () => {
-    it('should return tmdb movie id when passed an imdb id', async () => {
-      const captainMarvelTmdbMovieId = 299537;
-      const movieId = await tmdbService.getMovieId(captainMarvelImdbId);
-      expect(movieId).to.be.equal(captainMarvelTmdbMovieId);
-    });
-
-    it('should return 404 when passed an inexistent imdb id', async () => {
-      const inexistentImdbId = 'tt4154665';
-      const { statusCode } = await tmdbService.getMovieId(inexistentImdbId);
-      expect(statusCode).to.be.equal(404);
+  describe('#getTrailerFromApi(imdbId)', () => {
+    it('should return trailer url when passed an imdb id', async () => {
+      const captainMarvelImdbId = 'tt4154664';
+      const captainMarvelTrailer =
+        'https://www.youtube.com/watch?v=Z1BCujX3pw8';
+      const trailerURL = await tmdbService.getTrailerFromApi(
+        captainMarvelImdbId
+      );
+      expect(trailerURL).to.be.equal(captainMarvelTrailer);
     });
   });
 });

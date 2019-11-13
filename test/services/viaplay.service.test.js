@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import getImdbId from '../../services/viaplay.service';
+import viaplayService from '../../services/viaplay.service';
 
 describe('Viaplay Service', () => {
   describe('#getImdbId(movieResourceLink)', () => {
@@ -8,14 +8,14 @@ describe('Viaplay Service', () => {
 
     it('should return imdb id when passed an existing movie', async () => {
       const movieResourceLink = `${resourceLinkWithoutMovie}/${movieSlug}`;
-      const imdbId = await getImdbId(movieResourceLink);
+      const imdbId = await viaplayService.getImdbId(movieResourceLink);
       expect(imdbId).to.be.equal('tt4154664');
     });
 
-    it('should return 404 when a movie is not found', async () => {
+    it('should return null when a movie is not found', async () => {
       const movieResourceLink = `${resourceLinkWithoutMovie}/movie-not-found`;
-      const { status } = await getImdbId(movieResourceLink);
-      expect(status).to.be.equal(404);
+      const result = await viaplayService.getImdbId(movieResourceLink);
+      expect(result).to.be.null;
     });
   });
 });

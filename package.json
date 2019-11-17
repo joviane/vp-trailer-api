@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "test": "NODE_ENV=test mocha --require sucrase/register --require dotenv/config ./test/**/*.js"
+    "allTests": "NODE_ENV=test mocha --require sucrase/register --require dotenv/config ./test/**/*.js",
+    "test": "docker-compose run app npm run allTests"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "fastify": "^2.10.0",
+    "ioredis": "^4.14.1",
     "sucrase": "^3.10.1",
     "superagent": "^5.1.0"
   }

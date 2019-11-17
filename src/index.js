@@ -2,6 +2,6 @@ import { config } from 'dotenv';
 import server from './api/server';
 
 config();
-const { PORT } = process.env;
+const { PORT, HOST } = process.env;
 
-server.listen(PORT);
+server.listen(PORT, HOST);

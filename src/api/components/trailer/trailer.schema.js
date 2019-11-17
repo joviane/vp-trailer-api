@@ -14,6 +14,17 @@ const schema = {
       type: 'object',
       properties: {
         trailerURL: { type: 'string' },
+        links: {
+          type: 'object',
+          properties: {
+            self: {
+              type: 'object',
+              properties: {
+                href: { type: 'string' },
+              },
+            },
+          },
+        },
       },
     },
   },

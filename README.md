@@ -2,6 +2,8 @@
 
 An API to retrieve trailer information for viaplay movies
 
+[![Build Status](https://travis-ci.org/joviane/vp-trailer-api.svg?branch=master)](https://travis-ci.org/joviane/vp-trailer-api)
+
 ## Getting Started
 
 1. Clone this project

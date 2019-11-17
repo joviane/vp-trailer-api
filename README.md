@@ -4,16 +4,26 @@ An API to retrieve trailer information for viaplay movies
 
 ## Getting Started
 
-TBC
+1. Clone this project
+2. On Terminal, run the following command to start the application:
+   ```
+   docker-compose up
+   ```
+3. To get a trailer URL, pass a movie resource link like this example: [https://localhost:3000/trailer?movieResourceLink=https://content.viaplay.se/pc-se/film/captain-marvel-2019](https://localhost:3000/trailer?movieResourceLink=https://content.viaplay.se/pc-se/film/captain-marvel-2019)
 
 ### Prerequisites
 
-- Npm (>= 6.12.1)
-- Node (>=12.13.0)
+- Docker
+- Docker Compose
 
 ## Running the tests
 
-TBC
+npm test
+
+
+## Questions to ask
+
+- What is the ?dtg param in URL? Example: https://content.viaplay.se/ios-se{?dtg}
 
 ## Built With
 

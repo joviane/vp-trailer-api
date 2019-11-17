@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  redis:
+    image: redis
+    command: ['redis-server', '--appendonly', 'yes']
+    container_name: redis
+    expose:
+      - 6379
+  app:
+    build: ./
+    volumes:
+      - ./:/var/www/app
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=development
+      - HOST=0.0.0.0
+      - PORT=3000
+      - REDIS_URL=redis://redis
+      - TMDB_API_KEY=e75e2ad9318a0a782764591d8957e789
+      - YOUTUBE_PARTIAL_URL=https://www.youtube.com/watch?v=
+    command: sh -c 'npm i && npm run dev'
+    links:
+      - redis

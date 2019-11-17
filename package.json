@@ -4,7 +4,9 @@
   "description": "Viaplay trailer api assignment",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js",
+    "allTests": "NODE_ENV=test mocha --require sucrase/register --require dotenv/config ./test/**/*.js",
+    "test": "docker-compose run app npm run allTests"
   },
   "repository": {
     "type": "git",
@@ -14,5 +16,26 @@
   "bugs": {
     "url": "https://github.com/joviane/vp-trailer-api/issues"
   },
-  "homepage": "https://github.com/joviane/vp-trailer-api#readme"
+  "homepage": "https://github.com/joviane/vp-trailer-api#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "mocha": "^6.2.2",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.19.0",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "fastify": "^2.10.0",
+    "ioredis": "^4.14.1",
+    "sucrase": "^3.10.1",
+    "superagent": "^5.1.0"
+  }
 }

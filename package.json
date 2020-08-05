@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "fastify": "^2.10.0",
+    "fastify": "^2.15.1",
     "ioredis": "^4.14.1",
     "sucrase": "^3.10.1",
     "superagent": "^5.1.0"

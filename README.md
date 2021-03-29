@@ -2,7 +2,7 @@
 
 An API to retrieve trailer information for viaplay movies from [TMDb](https://www.themoviedb.org/)
 
-[![Build Status](https://travis-ci.com/joviane/vp-trailer-api.svg?branch=master)](https://travis-ci.org/joviane/vp-trailer-api)
+[![Build Status](https://travis-ci.com/joviane/vp-trailer-api.svg?branch=master)](https://travis-ci.com/joviane/vp-trailer-api)
 
 ## Getting Started
 

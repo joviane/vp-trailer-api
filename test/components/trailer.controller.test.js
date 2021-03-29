@@ -23,24 +23,24 @@ describe('Trailer Controller', () => {
 
     it('should respond 200 and trailer with valid url', async () => {
       const validURL = `${url}?movieResourceLink=${movieResourceLink}`;
-      const captainMarvelTrailer =
-        'https://www.youtube.com/watch?v=Z1BCujX3pw8';
+      const trailerURL =
+        'https://www.youtube.com/watch?v=F-qBD17wwrQ';
       const response = await request(server).get(validURL);
       const { status, body } = response;
       expect(status).to.be.equal(200);
       expect(body).to.have.property('trailerURL');
-      expect(body.trailerURL).to.be.equal(captainMarvelTrailer);
+      expect(body.trailerURL).to.be.equal(trailerURL);
     });
 
     it('should respond 200 and trailer with valid url with extra query params', async () => {
       const validURL = `${url}?movieResourceLink=${movieResourceLink}&paramName=paramValue`;
-      const captainMarvelTrailer =
-        'https://www.youtube.com/watch?v=Z1BCujX3pw8';
+      const trailerURL =
+        'https://www.youtube.com/watch?v=F-qBD17wwrQ';
       const response = await request(server).get(validURL);
       const { status, body } = response;
       expect(status).to.be.equal(200);
       expect(body).to.have.property('trailerURL');
-      expect(body.trailerURL).to.be.equal(captainMarvelTrailer);
+      expect(body.trailerURL).to.be.equal(trailerURL);
     });
 
     it('should respond 400 with url without query parameter', async () => {

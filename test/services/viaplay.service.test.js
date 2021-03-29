@@ -9,7 +9,7 @@ describe('Viaplay Service', () => {
     it('should return imdb id when passed an existing movie', async () => {
       const movieResourceLink = `${resourceLinkWithoutMovie}/${movieSlug}`;
       const imdbId = await viaplayService.getImdbId(movieResourceLink);
-      expect(imdbId).to.be.equal('tt4154664');
+      expect(imdbId).to.be.equal('tt2381249');
     });
 
     it('should throw error when a movie is not found', () => {

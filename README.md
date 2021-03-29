@@ -12,7 +12,7 @@ An API to retrieve trailer information for viaplay movies from [TMDb](https://ww
    ```
    docker-compose up
    ```
-4. To get a trailer URL, pass a movie resource link like this example: [localhost:3000/trailer?movieResourceLink=https://content.viaplay.se/pc-se/film/captain-marvel-2019](localhost:3000/trailer?movieResourceLink=https://content.viaplay.se/pc-se/film/captain-marvel-2019)
+4. To get a trailer URL, pass a movie resource link like this example: [localhost:3000/trailer?movieResourceLink=https://content.viaplay.se/pc-se/film/mission-impossible-rogue-nation-2015](localhost:3000/trailer?movieResourceLink=https://content.viaplay.se/pc-se/film/mission-impossible-rogue-nation-2015)
 
 ### Prerequisites
 
@@ -38,9 +38,9 @@ An API to retrieve trailer information for viaplay movies from [TMDb](https://ww
 This benchmark was run in a machine using `Intel© Core™ i7-8750H CPU @ 2.20GHz × 6`.
 
 ```
-> autocannon -c 100 -d 40 -p 10 http://localhost:3000/trailer?movieResourceLink=https://content.viaplay.se/pc-se/film/captain-marvel-2019
+> autocannon -c 100 -d 40 -p 10 http://localhost:3000/trailer?movieResourceLink=https://content.viaplay.se/pc-se/film/mission-impossible-rogue-nation-2015
 
-Running 40s test @ http://localhost:3000/trailer?movieResourceLink=https://content.viaplay.se/pc-se/film/captain-marvel-2019
+Running 40s test @ http://localhost:3000/trailer?movieResourceLink=https://content.viaplay.se/pc-se/film/mission-impossible-rogue-nation-2015
 100 connections with 10 pipelining factor
 
 ┌─────────┬──────┬──────┬───────┬───────┬─────────┬─────────┬───────────┐

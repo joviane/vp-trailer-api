@@ -7,7 +7,7 @@
     "dev": "nodemon src/index.js",
     "allTests": "NODE_ENV=test mocha --require sucrase/register --require dotenv/config ./test/**/*.js",
     "test": "docker-compose run app npm run allTests",
-    "benchmark": "autocannon -c 100 -d 40 -p 10 http://localhost:3000/trailer?movieResourceLink=https://content.viaplay.se/pc-se/film/captain-marvel-2019"
+    "benchmark": "autocannon -c 100 -d 40 -p 10 http://localhost:3000/trailer?movieResourceLink=https://content.viaplay.se/pc-se/film/mission-impossible-rogue-nation-2015"
   },
   "repository": {
     "type": "git",

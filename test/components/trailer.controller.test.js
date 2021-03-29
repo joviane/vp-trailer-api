@@ -19,7 +19,7 @@ describe('Trailer Controller', () => {
 
   describe(`GET ${url}`, () => {
     const contentAPI = 'https://content.viaplay.se/pc-se/film';
-    const movieResourceLink = `${contentAPI}/captain-marvel-2019`;
+    const movieResourceLink = `${contentAPI}/mission-impossible-rogue-nation-2015`;
 
     it('should respond 200 and trailer with valid url', async () => {
       const validURL = `${url}?movieResourceLink=${movieResourceLink}`;

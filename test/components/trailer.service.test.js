@@ -4,7 +4,7 @@ import trailerService from '../../src/api/components/trailer/trailer.service';
 describe('Trailer Service', () => {
   describe('#getTrailerURL(movieResourceLink)', () => {
     const resourceLinkWithoutMovie = 'https://content.viaplay.se/pc-se/film';
-    const movieSlug = 'captain-marvel-2019';
+    const movieSlug = 'mission-impossible-rogue-nation-2015';
 
     it('should return trailerURL with a valid movieResourceLink', async () => {
       const movieResourceLink = `${resourceLinkWithoutMovie}/${movieSlug}`;
